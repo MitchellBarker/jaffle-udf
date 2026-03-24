@@ -46,7 +46,10 @@ joined as (
         case
             when customer_orders_summary.is_repeat_buyer then 'returning'
             else 'new'
-        end as customer_type
+        end as customer_type,
+
+        {{ format_customer_name('customers.customer_name') }} as formatted_customer_name,
+        {{ days_since('customer_orders_summary.last_ordered_at') }} as days_since_last_order
 
     from customers
 

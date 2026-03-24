@@ -28,6 +28,8 @@ models:
         description: A boolean indicating if this order included any food items.
       - name: is_drink_order
         description: A boolean indicating if this order included any drink items.
+      - name: order_size
+        description: A size classification of the order derived from the order total. Values are 'small' (under $10), 'medium' ($10–$19), or 'large' ($20 and above).
 
 unit_tests:
   - name: test_order_items_compute_to_bools_correctly

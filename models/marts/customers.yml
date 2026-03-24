@@ -29,6 +29,10 @@ models:
         data_tests:
           - accepted_values:
               values: ["new", "returning"]
+      - name: formatted_customer_name
+        description: The customer's full name normalized to title case with leading and trailing whitespace removed.
+      - name: days_since_last_order
+        description: The number of days elapsed between the customer's most recent order and the current date. Null if the customer has never placed an order.
 
 semantic_models:
   - name: customers

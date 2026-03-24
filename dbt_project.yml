@@ -21,6 +21,11 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
+on-run-start:
+  - "{{ create_classify_order_size() }}"
+  - "{{ create_format_customer_name() }}"
+  - "{{ create_days_since() }}"
+
 vars:
   "dbt_date:time_zone": "America/Los_Angeles"
 
