@@ -1,0 +1,29 @@
+version: 2
+
+functions:
+  - name: cents_to_dollars
+    description: Converts an integer amount in cents to a decimal dollar value. Warehouse-native alternative to the cents_to_dollars macro, usable in BI tools and external queries.
+    returns:
+      data_type: numeric
+    arguments:
+      - name: amount_cents
+        data_type: integer
+        description: Amount in cents to convert to dollars
+
+  - name: classify_customer
+    description: Classifies a customer as new, returning, or loyal based on their lifetime order count.
+    returns:
+      data_type: varchar
+    arguments:
+      - name: lifetime_orders
+        data_type: integer
+        description: Total number of orders placed by the customer
+
+  - name: customer_lifetime_tier
+    description: Assigns a spend tier (bronze, silver, gold) to a customer based on their total lifetime spend in dollars.
+    returns:
+      data_type: varchar
+    arguments:
+      - name: lifetime_spend
+        data_type: numeric
+        description: Total lifetime spend in dollars
