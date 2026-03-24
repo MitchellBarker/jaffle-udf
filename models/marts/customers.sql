@@ -43,10 +43,8 @@ joined as (
         customer_orders_summary.lifetime_tax_paid,
         customer_orders_summary.lifetime_spend,
 
-        case
-            when customer_orders_summary.is_repeat_buyer then 'returning'
-            else 'new'
-        end as customer_type
+        {{ function('classify_customer') }}(customer_orders_summary.count_lifetime_orders) as customer_type,
+        {{ function('customer_lifetime_tier') }}(customer_orders_summary.lifetime_spend) as customer_lifetime_tier
 
     from customers
 
